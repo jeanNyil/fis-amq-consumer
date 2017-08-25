@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd        http://camel.apache.org/schema/spring       http://camel.apache.org/schema/spring/camel-spring.xsd">
+    <!-- Camel Routes -->
+    <camelContext id="camel" xmlns="http://camel.apache.org/schema/spring">
+    		<route streamCache="true" id="jms-consumer-one">
+    			<from id="route-from-jms-dest1" uri="amq:{{activemq.input.destination1}}"/>
+    			<log id="route-log-jms-dest1_msg" message="Received message: ${body}"/>
+    		</route>
+    		<route streamCache="true" id="jms-consumer-two">
+    			<from id="route-from-jms-dest2" uri="amq:{{activemq.input.destination2}}"/>
+    			<log id="route-log-jms-dest2_msg" message="Received message: ${body}"/>
+    		</route>
+    		<route streamCache="true" id="jms-consumer-three">
+    			<from id="route-from-jms-dest3" uri="amq:{{activemq.input.destination3}}"/>
+    			<log id="route-log-jms-dest3_msg" message="Received message: ${body}"/>
+    		</route>
+    		<route streamCache="true" id="jms-consumer-four">
+    			<from id="route-from-jms-dest4" uri="amq:{{activemq.input.destination4}}"/>
+    			<log id="route-log-jms-dest4_msg" message="Received message: ${body}"/>
+    		</route>
+    </camelContext>
+</beans>
